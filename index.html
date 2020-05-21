@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Temperature </title>
+    <meta charset="utf-8">
+    <style>
+      input, label {
+        font-size: 2rem;
+        text-align: right;
+      }
+      div {
+        margin: 10px;
+      }
+    </style>
+    <script>
+      window.onload =
+        function () {
+          const celcius = document.getElementById("celcius");  
+          const fahrenheit = document.getElementById("fahrenheit"); 
+          celcius.addEventListener(
+            "keyup",
+            function (event) {
+              fahrenheit.value = (parseFloat(celcius.value) * 1.8 + 32).toFixed(2);
+            }
+          );
+          fahrenheit.addEventListener(
+            "keyup",
+            function (event) {
+              celcius.value = ((parseFloat(fahrenheit.value) - 32) / 1.8).toFixed(2);
+            }
+          );
+
+        }
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <input type="text" id="celcius" size="20">
+      <label for="celcius">°C</label>
+    </div>
+    <div>
+      <input type="text" id="fahrenheit" size="20">
+      <label for="fahrenheit">°F</label>
+    </div>
+  </body>
+</html>
